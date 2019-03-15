@@ -1,0 +1,1874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Oracle&reg; Exadata Database Machine and Oracle SuperCluster README for Oracle Exadata Deployment Assistant Update 20505944</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Merged Version 1044" />
+<meta name="date" content="2015-02-12T11:22:46Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Oracle Exadata Database Machine and Oracle SuperCluster README for Oracle Exadata Deployment Assistant Update 20505944, 11g Release 2 (11.2) and 12c Release 1 (12.1)" />
+<meta name="relnum" content="11g Release 2 (11.2) and 12c Release 1 (12.1)" />
+<meta name="partnum" content="" />
+<meta name="docid" content="no_value_supplied" />
+<!-- <link rel="copyright" href="/html/cpyr.htm" title="Copyright" type="text/html" /> -->
+<style type="text/css">
+/*<![CDATA[*/
+/*
+  Copyright 2002, 2015, Oracle and/or its affiliates. All rights reserved.
+  Author: Robert Crews
+  Version: 2014.7.21
+*/
+
+body {
+  font-family: Tahoma, sans-serif;
+  color: #222;
+  background-color: white;
+  font-size: small;
+}
+* html body {
+  /* Modified SBMH (Tan hack) */
+  font-size: x-small; /* for IE5.x/win */
+  f\ont-size: small;  /* for other IE versions */
+}
+
+h1 {
+  font-size: 165%;
+  line-height: normal;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+h2 {
+  font-size: 152%;
+  line-height: normal;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 139%;
+  line-height: normal;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 126%;
+  line-height: normal;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 113%;
+  line-height: normal;
+  font-weight: bold;
+  display: inline;
+}
+
+h6 {
+  font-size: 100%;
+  line-height: normal;
+  font-weight: bold;
+  font-style: italic;
+  display: inline;
+}
+
+a:link {
+  color: #039;
+  background: inherit;
+}
+
+a:visited {
+  color: #72007c;
+  background: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a img, img[usemap] {
+  border-style: none;
+}
+
+code, pre, samp, tt {
+  font-family: monospace;
+  font-size: 110%;
+}
+
+caption {
+  text-align: center;
+  font-weight: bold;
+  width: auto;
+}
+
+dt {
+  font-weight: bold;
+}
+
+table {
+  font-size: small; /* for ICEBrowser */
+}
+
+td {
+  vertical-align: top;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+table[dir="rtl"] th {
+  font-weight: bold;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+td p:first-child, td pre:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+table.table-border {
+  border-collapse: collapse;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+table.table-border th {
+  padding: 0.5ex 0.25em;
+  color: black;
+  background-color: #f7f7ea;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+table.table-border td {
+  padding: 0.5ex 0.25em;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+span.gui-object, span.gui-object-action {
+  font-weight: bold;
+}
+
+span.gui-object-action-var {
+  font-weight: bold;
+  font-style: italic;
+}
+
+span.gui-object-title { }
+
+p.horizontal-rule {
+  width: 100%;
+  border: #cc9 solid;
+  border-width: 0 0 1px 0;
+  margin-bottom: 4ex;
+}
+
+/* http://webaim.org/techniques/skipnav/ */
+.zz-skip-header a, .zz-skip-header a:hover, .zz-skip-header a:visited {
+  position: absolute;
+  left: 0;
+  top: -500px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.zz-skip-header a:active, .zz-skip-header a:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+td.zz-nav-header-cell {
+  text-align: left;
+  font-size: 95%;
+  width: 99%;
+  color: black;
+  background-color: white;
+  font-weight: normal;
+  vertical-align: top;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a.zz-nav-header-link {
+  font-size: 95%;
+}
+
+td.zz-nav-button-cell {
+  white-space: nowrap;
+  text-align: center;
+  width: 1%;
+  vertical-align: top;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a.zz-nav-button-link {
+  font-size: 90%;
+}
+
+div.zz-nav-footer-menu {
+  width: 100%;
+  text-align: center;
+  margin-top: 2ex;
+  margin-bottom: 4ex;
+}
+
+p.zz-legal-notice, a.zz-legal-notice-link {
+  font-size: 85%;
+}
+
+sub, sup {
+  line-height: 0;
+}
+
+/*************************************/
+/*  Begin DARB Formats               */
+/*************************************/
+
+.IND {
+  line-height: 1.5;
+}
+
+/*
+max-width causes better full-screen display, but in IE7 & IE8:
+ * Causes bullets in some ul elements to be in the wrong places.
+ * Causes h2 headings after bulleted list to have no space above.
+Not-selector hack hides rule from IE8 and below.
+*/
+html:not([ie8andbelow]) .IND p,
+html:not([ie8andbelow]) .IND div,
+html:not([ie8andbelow]) .IND table {
+  max-width: 70em;
+}
+
+.IND div > pre, .IND dd > pre, .IND li > pre {
+  padding: 0.5ex 1ex;
+  color: black;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.bold, .codeinlinebold, .syntaxinlinebold, .term, .glossterm, .seghead,
+.glossaryterm, .keyword, .msg, .msgexplankw, .msgactionkw, .msglevelkw,
+.msgorigkw, .msgaudkw, .notep1, .xreftitlebold, .xrefglossterm {
+  font-weight: bold;
+}
+
+.italic, .codeinlineitalic, .syntaxinlineitalic, .variable,
+.xreftitleitalic {
+  font-style: italic;
+}
+
+.bolditalic, .codeinlineboldital, .syntaxinlineboldital,
+.titleinfigure, .titleinexample, .titleintable, .titleinequation,
+.xreftitleboldital {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.itemizedlisttitle, .orderedlisttitle, .segmentedlisttitle,
+.variablelisttitle {
+  font-weight: bold;
+}
+
+.bridgehead, .titleinrefsubsect3 {
+  font-weight: bold;
+}
+
+.titleinrefsubsect {
+  font-size: 126%;
+  font-weight: bold;
+}
+
+.titleinrefsubsect2 {
+  font-size: 113%;
+  font-weight: bold;
+}
+
+.subhead1 {
+  display: block;
+  font-size: 139%;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.subhead2, .related-topics {
+  display: block;
+  font-weight: bold;
+}
+
+.subhead3 {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.superscript {
+  vertical-align: super;
+  line-height: 0;
+}
+
+.subscript {
+  vertical-align: sub;
+  line-height: 0;
+}
+
+.listofeft {
+  border: none;
+}
+
+.betadraft, .alphabetanotice, .revenuerecognitionnotice {
+  color: #e00;
+  background-color: white;
+}
+
+.betadraftsubtitle {
+  text-align: center;
+  font-weight: bold;
+  color: #e00;
+  background-color: white;
+}
+
+.comment {
+  color: #080;
+  background-color: white;
+  font-weight: bold;
+}
+
+.copyrightlogo {
+  text-align: center;
+  font-size: 85%;
+}
+
+.tocsubheader {
+  list-style-type: none;
+}
+
+table.icons td {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.l1ix dd, dd dl.l2ix, dd dl.l3ix {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.infoboxnote, div.infoboxnotewarn, div.infoboxnotealso {
+  margin-top: 4ex;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 4ex;
+  padding: 0.25em;
+  border-top: 1pt solid gray;
+  border-bottom: 1pt solid gray;
+}
+
+p.notep1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tahiti-highlight-example {
+  color: black;
+  background-color: #ff9;
+  text-decoration: inherit;
+}
+
+.tahiti-highlight-search {
+  color: black;
+  background-color: #9cf;
+  text-decoration: inherit;
+}
+
+.tahiti-sidebar-heading {
+  font-size: 110%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/******************************************/
+/* Formats for FMW kit, Upated 2011-11-16 */
+/******************************************/
+
+.level1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-left: 20px;
+}
+
+.level2 {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-left: 40px;
+}
+
+.level3 {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-left: 60px;
+}
+
+.level4 {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-left: 80px;
+}
+
+.related-topics {
+  width: 60%;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top-color: #999999;
+  border-top-style: solid;
+  border-top-width: 1px;
+  font-size: 139%;
+  font-weight: bold;
+}
+
+/* remove top and bottom margins in p in table cells in Firefox */
+td p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#tThisDocument a:hover {
+  color: #600;
+  background-color: #b0cff5;
+}
+
+/*************************************/
+/*  End DARB Formats                 */
+/*************************************/
+
+@media all {
+  dd {
+    margin-bottom: 2ex;
+  }
+  dl:first-child {
+    margin-top: 2ex;
+  }
+}
+
+@media print {
+  body {
+    font-size: 11pt;
+    padding: 0 !important;
+  }
+
+  a:link, a:visited {
+    color: black;
+    background-color: white;
+  }
+
+  code, pre, samp, tt {
+    font-size: 10pt;
+  }
+
+  #nav, #search_this_book, #comment_form,
+  #comment_announcement, #flipNav, .noprint {
+    display: none !important;
+  }
+
+  body#left-nav-present {
+    overflow: visible !important;
+  }
+}
+
+@media screen and (max-device-width: 480px) {
+  body{
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+  }
+  fieldset input, fieldset textarea {
+    width: 100%;
+  }
+}
+
+/*]]>*/
+</style>
+</head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>Oracle&reg; Exadata Database Machine and Oracle SuperCluster README for Oracle Exadata Deployment Assistant Update 20505944</b><br />
+<b>11<span class="italic">g</span> Release 2 (11.2) and 12<span class="italic">c</span> Release 1 (12.1)</b><br /></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header -->
+<div class="letterstyle">
+<h1>Oracle&reg; Exadata Database Machine and Oracle SuperCluster</h1>
+<p class="booktitle">README for Oracle Exadata Deployment Assistant Update 20505944</p>
+<p><span class="revnumber">11<span class="italic">g</span> Release 2 (11.2) and 12<span class="italic">c</span> Release 1 (12.1)</span></p>
+<p class="invpartnumber"></p>
+<p class="date">February 2015</p>
+<p>This document describes how to apply the Oracle Exadata Deployment Assistant update. It contains the following topics:</p>
+<ul>
+<li>
+<p><a href="#BABJDIAI">Section 1, "About Oracle Exadata Deployment Assistant"</a></p>
+</li>
+<li>
+<p><a href="#BABEHJDF">Section 2, "Prerequisites for Oracle Exadata Deployment Assistant Deployment Tool"</a></p>
+</li>
+<li>
+<p><a href="#BABGJIDG">Section 3, "About Oracle Exadata Deployment Assistant Deployment Tool"</a></p>
+</li>
+<li>
+<p><a href="#A132172625">Section 4, "Documentation Accessibility"</a></p>
+</li>
+</ul>
+<a id="BABJDIAI" name="BABJDIAI"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">1</span> About Oracle Exadata Deployment Assistant</h2>
+<p>Oracle Exadata Deployment Assistant includes a configuration tool, and a deployment tool. It uses the XML data file created by the configuration tool to configure the Oracle Exadata system.</p>
+<p>Oracle Exadata Deployment Assistant configuration tool runs on a client. The client must run one of the following operating systems:</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64</p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+</li>
+<li>
+<p>Microsoft Windows</p>
+</li>
+<li>
+<p>Apple OS X (64-bit)</p>
+</li>
+</ul>
+<p>Download the appropriate file for the client operating system. For example, if Oracle Exadata Deployment Assistant configuration tool is to be run on a Microsoft Windows client, then download the Microsoft Windows file. The operating system of the client does not have to match the operating system of the engineered system.</p>
+<div align="center">
+<div class="inftblnotealso"><br />
+<table class="NoteAlso oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">See Also:</p>
+<span class="italic">Oracle Exadata Database Machine Owner's Guide</span> for additional information about Oracle Exadata Deployment Assistant</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnotealso" --></div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref1" name="sthref1"></a>
+<h3 class="sect2"><span class="secnum">1.1</span> Changes in This Release</h3>
+<p>The following changes are included in this release of Oracle Exadata Deployment Assistant:</p>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref2" name="sthref2"></a>
+<h4 class="sect3"><span class="secnum">1.1.1</span> Changes in February 2015 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP5, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19877336.</p>
+</li>
+<li>
+<p>Added step to the installation process that allows pkey interface configuration using the ipconf script.</p>
+</li>
+<li>
+<p>Added support to handle bonded InfiniBand interfaces during pkey setup.</p>
+</li>
+<li>
+<p>Added support to enable the <code dir="ltr">infinicheck</code> command when pkey is not enabled.</p>
+</li>
+<li>
+<p>Added fix for bug 20287585 on top of release 12.1.0.2 DBBP3 for 8-socket systems.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref3" name="sthref3"></a>
+<h4 class="sect3"><span class="secnum">1.1.2</span> Changes in January 2015 Release</h4>
+<ul>
+<li>
+<p>Support for Oracle Exadata Database Machine X5-2.</p>
+</li>
+<li>
+<p>Support for Oracle Exadata Database Machine X4-8 with Exadata Storage Server X5-2 Servers.</p>
+</li>
+<li>
+<p>Support for Oracle Exadata Database Machine X5-2 elastic configurations.</p>
+</li>
+<li>
+<p>Support for Oracle Virtual Machine user domains on Oracle Exadata Database Machine two-socket racks.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP4, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19877336.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1) PSU6, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19877342.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) BP15, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19877440.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) BP26, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19877443.</p>
+</li>
+</ul>
+<div align="center">
+<div class="inftblnotealso"><br />
+<table class="NoteAlso oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">See Also:</p>
+<a href="#BABBABBB">"Oracle Exadata Deployment Assistant Support for Oracle Virtual Machines"</a></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnotealso" --></div>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref4" name="sthref4"></a>
+<h4 class="sect3"><span class="secnum">1.1.3</span> Changes in December 2014 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP3, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19282028.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) BP14, and mandatory OJVM patch set update 19282021, and JDBC patch 19852360.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref5" name="sthref5"></a>
+<h4 class="sect3"><span class="secnum">1.1.4</span> Changes in November 2014 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP2, and mandatory Oracle Java Virtual Machine (OJVM) patch set update 19282028 (for both DBBP1 and DBBP2).</p>
+</li>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1) mandatory OJVM patch set update 19282024, and Java Database Connectivity (JDBC) patch 19852357 (for PSU5).</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) mandatory OJVM patch set update 19282021, and JDBC patch 19852360 (for both BP13 and BP12).</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) mandatory OJVM patch set update 19282015, and JDBC patch 19852361 (for BP25).</p>
+</li>
+<li>
+<p>Added support for identification and configuration of additional spine switches during initial data configuration.</p>
+</li>
+<li>
+<p>Updated the initial Oracle Exadata Deployment Assistant configuration screen to have options for Oracle Exadata Database Machine, Oracle Zero Data Loss Recovery Appliance, and Oracle SuperCluster.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref6" name="sthref6"></a>
+<h4 class="sect3"><span class="secnum">1.1.5</span> Changes in October 2014 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP1.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1) PSU5.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) Patch Set 3 BP12.</p>
+</li>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) Patch Set 2 BP25.</p>
+</li>
+<li>
+<p>Reduced setup time for the Cell Alerting configuration step.</p>
+</li>
+<li>
+<p>Updated the bash rpm on Linux database and storage servers to counter the bash shell vulnerability CVE-2014-6217 and CVE-2014-7169.</p>
+</li>
+<li>
+<p>Support for Zero Data Loss Recovery Appliance.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref7" name="sthref7"></a>
+<h4 class="sect3"><span class="secnum">1.1.6</span> Changes in September 2014 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) Patch Set 3 BP11.</p>
+</li>
+<li>
+<p>Added a timestamp to the Installation Template report.</p>
+</li>
+<li>
+<p>Updated the <code dir="ltr">checkip.sh</code> script so that it no longer displays incorrect errors for Oracle Exadata Storage Expansion Rack.</p>
+</li>
+<li>
+<p>Updated Oracle Exadata Deployment Assistant deployment tool so that NTP services (ntpd) are restarted before the Install Cluster Software step.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref8" name="sthref8"></a>
+<h4 class="sect3"><span class="secnum">1.1.7</span> Changes in August 2014 Release</h4>
+<ul>
+<li>
+<p>Added support for Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) Patch Set 3 BP10.</p>
+</li>
+<li>
+<p>Implemented a set of questions in Oracle Exadata Deployment Assistant to clarify the proposed installation.</p>
+</li>
+<li>
+<p>Enabled <code dir="ltr">appliance.mode</code> attribute for disk groups in Oracle Database releases 11.2.0.4 and 12.1.0.2 deployments.</p>
+</li>
+<li>
+<p>Enhanced Oracle Exadata Deployment Assistant validation check to disable active-active bonding on Oracle Exadata Database Machine X4-2 Solaris X64 deployments.</p>
+</li>
+<li>
+<p>Corrected the reported Oracle ASM disk group size in the installation template for eighth rack deployments.</p>
+</li>
+<li>
+<p>Corrected the number of InfiniBand adapters created in Oracle SuperCluster Zones deployment.</p>
+</li>
+<li>
+<p>Implemented a full set of new database DBCA templates for Oracle SuperCluster deployments.</p>
+</li>
+<li>
+<p>Corrected intermittent delay at the end of the Initialize Cluster step.</p>
+</li>
+<li>
+<p>Fixed issues with the Apply Security Fixes step.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref9" name="sthref9"></a>
+<h4 class="sect3"><span class="secnum">1.1.8</span> Changes in July 2014 Release</h4>
+<ul>
+<li>
+<p>Addition of the Platinum support page to capture customer information.</p>
+</li>
+<li>
+<p>Length validation for InfiniBand switch host names.</p>
+</li>
+<li>
+<p>Corrections to the Oracle Exadata Database Machine X4-8 DBCA template.</p>
+</li>
+<li>
+<p>Support for multiple InfiniBand adapters in Oracle SuperCluster Zones.</p>
+</li>
+<li>
+<p>Removal of reverse DNS lookup validation in step 1 of the installation.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref10" name="sthref10"></a>
+<h3 class="sect2"><span class="secnum">1.2</span> Running Oracle Exadata Deployment Assistant Deployment Tool</h3>
+<p>Note the following guidelines when using Oracle Exadata Deployment Assistant deployment tool:</p>
+<ul>
+<li>
+<p>Do not run Oracle Exadata Deployment Assistant deployment tool on Exadata Storage Servers.</p>
+</li>
+<li>
+<p>When used for deployment, Oracle Exadata Deployment Assistant is run on any of the following systems that can access the Exadata database servers:</p>
+<ul>
+<li>
+<p>Oracle Exadata Database Machine database server</p>
+</li>
+<li>
+<p>Oracle SuperCluster database domain</p>
+</li>
+<li>
+<p>Oracle SuperCluster database zone</p>
+</li>
+<li>
+<p>Microsoft Windows machine</p>
+</li>
+<li>
+<p>Oracle Linux machine</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC machine</p>
+</li>
+<li>
+<p>Apple OS X machine</p>
+</li>
+</ul>
+<p>The examples in this document are from using a database server on Oracle Exadata Database Machine.</p>
+</li>
+<li>
+<p>The deployment tool script, <code dir="ltr">install.sh</code>, requires the XML data file created by the configuration tool script, <code dir="ltr">config.sh</code>, and the compressed software files from Oracle Technology Network for the software release being deployed.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+If patches are downloaded from My Oracle Support instead of Oracle Technology Network, then rename the My Oracle Support files to match the names shown in this document.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li>
+<p>Review My Oracle Support note 888828.1 for the latest information about issues, workarounds and guidelines about this update. My Oracle Support note 888828.1 is updated regularly with new information after a patch release.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref11" name="sthref11"></a>
+<h3 class="sect2"><span class="secnum">1.3</span> Supported Releases</h3>
+<p>Oracle Exadata Deployment Assistant update 20505944 supports the following Oracle Database releases and platforms:</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+The requirements for Exadata Storage Servers and database servers listed in My Oracle Support note 888828.1 must be met before installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) or Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1).</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<ul>
+<li>
+<p>Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) DBBP1 through DBBP5</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64</p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1) GIPSU1 through GIPSU6</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64</p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) Patch Set 3 BP1 through BP15</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64</p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) Patch Set 2 BP3 through BP26</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64</p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="BABEHJDF" name="BABEHJDF"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">2</span> Prerequisites for Oracle Exadata Deployment Assistant Deployment Tool</h2>
+<p>The directory needs approximately 10 GB of free space. The following directory is created, depending on the operating system:</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64: <code dir="ltr">/opt/oracle.SupportTools/onecommand/linux-x64</code></p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit): <code dir="ltr">/opt/oracle.SupportTools/onecommand/solaris-x64</code></p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit): <code dir="ltr">/opt/oracle.SupportTools/onecommand/solaris-sparcv9</code></p>
+</li>
+</ul>
+<p>The following procedure describes how to extract the file:</p>
+<ol>
+<li>
+<p>Ensure the <code dir="ltr">/opt/oracle.SupportTools</code> directory has at least 10 GB of free space.</p>
+</li>
+<li>
+<p>Create the <code dir="ltr">/opt/oracle.SupportTools/onecommand</code> directory, if it does not exist.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+unzip -d /opt/oracle.SupportTools/onecommand p20505944_121111_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>.zip 
+</pre></li>
+</ol>
+<p>Oracle Exadata Deployment Assistant deployment tool requires patches available from Oracle Technology Network. The required files depend on the Oracle Database release to be installed by the utility. The downloaded files should be placed in the <code dir="ltr">/opt/oracle.SupportTools/onecommand/</code><code dir="ltr"><span class="codeinlineitalic">platform</span></code><code dir="ltr">/WorkDir</code> directory in the destination path.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+If patches are downloaded from My Oracle Support instead of Oracle Technology Network, then rename the My Oracle Support files to match the names shown in this document.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>This section contains the following topics:</p>
+<ul>
+<li>
+<p><a href="#BABEHDHC">Section 2.1, "Requirements When Installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2)"</a></p>
+</li>
+<li>
+<p><a href="#BABHHCCA">Section 2.2, "Requirements When Installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1)"</a></p>
+</li>
+<li>
+<p><a href="#BABCGEEC">Section 2.3, "Requirements When Installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4)"</a></p>
+</li>
+<li>
+<p><a href="#BABDGJDE">Section 2.4, "Requirements When Installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3)"</a></p>
+</li>
+</ul>
+<div align="center">
+<div class="inftblnotealso"><br />
+<table class="NoteAlso oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">See Also:</p>
+<a href="#BABBABBB">"Oracle Exadata Deployment Assistant Support for Oracle Virtual Machines"</a> for information about the required files for Oracle VMs.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnotealso" --></div>
+<a id="BABEHDHC" name="BABEHDHC"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">2.1</span> Requirements When Installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2)</h3>
+<p>Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2) can be installed on Oracle Exadata Database Machine and Oracle SuperCluster. The following requirements for Exadata Storage Servers and database servers must be met before installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2):</p>
+<ul>
+<li>
+<p>The requirements stated in My Oracle Support note 888828.1 to run Oracle Database 12<span class="italic">c</span> release 1 (12.1) with Exadata Storage Servers.</p>
+</li>
+<li>
+<p>Patch 6880880, OPatch release 12.1.0.1.2 or later.</p>
+</li>
+<li>
+<p>Patch 19774304, Database Patch for Engineered Systems and DB In-Memory 12.1.0.2.2 (Nov2014) DBBP3.</p>
+</li>
+<li>
+<p>Patch 18622611, Oracle Exachk utility.</p>
+</li>
+<li>
+<p>The following files from Oracle Technology Network, depending on the operating system of Oracle Exadata Database Machine:</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+linuxamd64_12102_grid_1of2.zip
+linuxamd64_12102_grid_2of2.zip
+linuxamd64_12102_database_1of2.zip
+linuxamd64_12102_database_2of2.zip
+</pre></li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+solaris.x64_12102_grid_1of2.zip
+solaris.x64_12102_grid_2of2.zip
+solaris.x64_12102_database_1of2.zip
+solaris.x64_12102_database_2of2.zip
+</pre></li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+solaris.sparc64_12102_grid_1of2.zip
+solaris.sparc64_12102_grid_2of2.zip
+solaris.sparc64_12102_database_1of2.zip
+solaris.sparc64_12102_database_2of2.zip
+</pre></li>
+</ul>
+<p>The files are available at</p>
+<p><code dir="ltr"><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a></code></p>
+</li>
+<li>
+<p>The patch for the relevant DBBP being deployed. The following are the DBBP and patch numbers for release 12.1.0.2:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+DBBP    Patch Number    Required Additional Patches
+5       20329440        OJVM PSU2 19877336 
+4       20141343        OJVM PSU2 19877336 
+3       20026159        OJVM patch set update 19282028
+2       19774304        OJVM patch set update 19282028
+1       19404326        OJVM patch set update 19282028
+</pre></li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="BABHHCCA" name="BABHHCCA"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">2.2</span> Requirements When Installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1)</h3>
+<p>Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1) can be installed on Oracle Exadata Database Machine and Oracle SuperCluster. The following requirements for Exadata Storage Servers and database servers must be met before installing Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1):</p>
+<ul>
+<li>
+<p>The requirements stated in My Oracle Support note 888828.1 to run Oracle Database 12<span class="italic">c</span> release 1 (12.1) with Exadata Storage Servers.</p>
+</li>
+<li>
+<p>Patch 6880880, OPatch release 12.1.0.1.2 or later.</p>
+</li>
+<li>
+<p>Patch 18622611, Oracle Exachk utility.</p>
+</li>
+<li>
+<p>The following files from Oracle Technology Network, depending on the operating system of Oracle Exadata Database Machine:</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+linuxamd64_12c_grid_1of2.zip
+linuxamd64_12c_grid_2of2.zip
+linuxamd64_12c_database_1of2.zip
+linuxamd64_12c_database_2of2.zip
+</pre></li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit)</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+solaris.x64_12cR1_grid_1of2.zip
+solaris.x64_12cR1_grid_2of2.zip
+solaris.x64_12cR1_database_1of2.zip
+solaris.x64_12cR1_database_2of2.zip
+</pre></li>
+<li>
+<p>Oracle Solaris SPARC (64-bit)</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+solaris.sparc64_12cR1_grid_1of2.zip
+solaris.sparc64_12cR1_grid_2of2.zip
+solaris.sparc64_12cR1_database_1of2.zip
+solaris.sparc64_12cR1_database_2of2.zip
+</pre></li>
+</ul>
+<p>The files are available at</p>
+<p><code dir="ltr"><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a></code></p>
+</li>
+<li>
+<p>The patch for the relevant PSU being deployed. The following are the GIPSUs and patch numbers for release 12.1.0.1:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+GIPSU   Patch Number   Required Additional Patches
+6       19971324       OJVM PSU2 19877342, JDBC patch 19852357
+5       19392372       OJVM patch set update 19282024, JDBC patch 19852357
+4       18705901
+3       18139660
+2       17735306
+1       17272829       Oracle patch 16057129
+</pre></li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="BABCGEEC" name="BABCGEEC"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">2.3</span> Requirements When Installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4)</h3>
+<p>The following files are required when installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) on Oracle Exadata Database Machine and Oracle SuperCluster:</p>
+<ul>
+<li>
+<p>Patch 6880880, OPatch release 11.2.0.3.6 or later.</p>
+</li>
+<li>
+<p>Patch 13390677, Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.4) Patch Set 3. Only the following files from patch 13390677 are required:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+p13390677_112040_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_1of7.zip
+p13390677_112040_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_2of7.zip
+p13390677_112040_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_3of7.zip
+</pre></li>
+<li>
+<p>Patch 18622611, Oracle Exachk utility.</p>
+</li>
+<li>
+<p>The patch for the relevant bundle patch being deployed. The following are the bundle patches and patch numbers for release 11.2.0.4:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+BP     Patch Number   Required Additional Patches
+15     20059387       OJVM PSU2 19877440, JDBC patch 19852360
+14     19893788       OJVM patch set update 19282021, JDBC patch 19852360
+13     19713190       OJVM patch set update 19282021, JDBC patch 19852360
+12     19542004       OJVM patch set update 19282021, JDBC patch 19852360
+11     19353130
+10     19023390
+9      18840215
+8      18632316
+7      18530329
+6      18371656
+5      18179615
+4      18006587
+3      17904156
+2      17838803
+1      17628025
+</pre></li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="BABDGJDE" name="BABDGJDE"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">2.4</span> Requirements When Installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3)</h3>
+<p>The following files are required when installing Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) on Oracle Exadata Database Machine and Oracle SuperCluster:</p>
+<ul>
+<li>
+<p>Patch 16042459, if Oracle Exadata Storage Server Software release is release 11.2.3.2.0.</p>
+</li>
+<li>
+<p>Patch 6880880, OPatch release 11.2.0.3.6 or later.</p>
+</li>
+<li>
+<p>Patch 16844086, for the Oracle Database software home if the Oracle Grid Infrastructure home software release is 12.1.</p>
+</li>
+<li>
+<p>Patch 10404530, Oracle Database 11<span class="italic">g</span> Release 2 (11.2.0.3) Patch Set 2. Only the following files from patch 10404530 are required:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+p10404530_112030_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_1of7.zip
+p10404530_112030_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_2of7.zip
+p10404530_112030_<code dir="ltr"><span class="codeinlineitalic">platform</span></code>_3of7.zip
+</pre></li>
+<li>
+<p>Patch 18622611, Oracle Exachk utility.</p>
+</li>
+<li>
+<p>The patch for the relevant bundle patch being deployed. The following are the bundle patches and patch numbers for release 11.2.0.3:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+BP     Patch Number   Required Additional Patches
+26     19955474       OJVM PSU2 19877443, JDBC patch 19852361
+25     19500593       OJVM patch set update 19282015, JDBC patch 19852361
+24     18835772
+23     18342655
+22     17747147
+21     17395890       Oracle patch 16057129 (see Note)
+20     16869210
+19     16784993
+18     16627873
+17     16474946
+16     16233552
+15     16039087
+14     15835102
+13     14786157
+12     14662263
+11     14474780
+10     14352236
+9      14229857
+8      14103267
+7      13992240
+6      13870089
+5      13734832
+4      13667791
+3      13556853
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>Oracle patch 20116094 is needed when using release 11.2.0.3 Bundle Patch 25 and earlier on Oracle SuperCluster Solaris SPARC.</p>
+<p>Oracle patch 16057129 is needed when using release 11.2.0.3 Bundle Patch 21. In addition, the compressed patch file must be renamed to following, depending on the operating system:</p>
+<ul>
+<li>
+<p>Oracle Linux x86-64: <code dir="ltr">p16057129_112030_Linux-x86-64.zip</code></p>
+</li>
+<li>
+<p>Oracle Solaris x86-64 (64-bit): <code dir="ltr">p16057129_112030_Solaris86-64.zip</code></p>
+</li>
+<li>
+<p>Oracle Solaris SPARC (64-bit): <code dir="ltr">p16057129_112030_SOLARIS64.zip</code></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="BABGJIDG" name="BABGJIDG"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">3</span> About Oracle Exadata Deployment Assistant Deployment Tool</h2>
+<p>Oracle Exadata Deployment Assistant deployment tool configures the engineered system based on the configuration information entered by the customer. Oracle Exadata Deployment Assistant is provided as a compressed file. To use Oracle Exadata Deployment Assistant, extract the file on the client server. After the file has been extracted, change to the directory that has the extracted folder, and run one of the following commands:</p>
+<ul>
+<li>
+<p>On Linux, Apple, and UNIX:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+config.sh
+</pre></li>
+<li>
+<p>On Microsoft Windows:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+config.cmd
+</pre></li>
+</ul>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref12" name="sthref12"></a>
+<h3 class="sect2"><span class="secnum">3.1</span> Using Oracle Exadata Deployment Assistant</h3>
+<p>When using Oracle Exadata Deployment Assistant from a database server on Oracle Exadata Database Machine, log in as the <code dir="ltr">root</code> user, and copy the configuration files created by Oracle Exadata Deployment Assistant to a directory on the first database server in the <code dir="ltr">/u01</code> directory, such as the <code dir="ltr">/u01/oeda</code> directory.</p>
+<p>When using Oracle Exadata Deployment Assistant remotely, run the assistant from the directory that has the <code dir="ltr">install.sh</code> file.</p>
+<p>The following steps are performed by the assistant:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+1. Validate Configuration File
+2. Setup Required Files
+3. Create Users
+4. Setup Cell Connectivity
+5. Verify Infiniband
+6. Calibrate Cells
+7. Create Cell Disks
+8. Create Grid Disks
+9. Configure Cell Alerting 
+10. Install Cluster Software
+11. Initialize Cluster Software
+12. Install Database Software
+13. Relink Database with RDS
+14. Create ASM Diskgroups
+15. Create Databases
+16. Apply Security Fixes
+17. Setup ASR Alerting
+18. Create Installation Summary
+19. Resecure Machine
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" dir="ltr">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+The number of steps and step numbers may be different, depending on the features selected for configuration.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>Oracle Exadata Deployment Assistant uses the configuration files located in the <code dir="ltr">./config/</code> directory. These files cannot be changed or edited.</p>
+<p>Log files are generated when using the deployment tool. The log files are located in the <code dir="ltr">./log/</code> directory. If there is an error when using Oracle Exadata Deployment Assistant, then open a service request, and include the diagnostics file. The diagnostics file is created in the <code dir="ltr">./WorkDir/</code> directory, and is a compressed file that contains information relevant to the error.</p>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref13" name="sthref13"></a>
+<h4 class="sect3"><span class="secnum">3.1.1</span> Oracle Exadata Deployment Assistant Commands</h4>
+<p>The <code dir="ltr">install.sh</code> script is used to run Oracle Exadata Deployment Assistant. The script is run by the <code dir="ltr">root</code> user.</p>
+<p>The following arguments are available with the script:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+-l             List all the steps that exist
+-cf            The config file name (use full path)
+-s &lt;step num&gt;  Run a particular step
+-r &lt;num-num&gt;   Run the steps one after the other as long as no errors are encountered
+-u &lt;num-num&gt; &lt;step num&gt; Undo a range of steps or a particular step
+-h             Usage
+</pre>
+<p>The following examples show how to use the <code dir="ltr">install.sh</code> script:</p>
+<ul>
+<li>
+<p>To run an individual step:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+# ./install.sh -cf ../exadatarack1.xml -s 5
+</pre></li>
+<li>
+<p>To run a range of steps:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+# ./install.sh -cf ../exadatarack1.xml -r 1-3
+</pre></li>
+<li>
+<p>To undo a step:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+# ./install.sh -cf ../exadatarack1.xml -u 3
+</pre>
+<p>The steps <code dir="ltr">Validate the configuration files</code> and <code dir="ltr">Apply security fixes</code> cannot be undone.</p>
+</li>
+<li>
+<p>To undo a range of steps:</p>
+<pre xml:space="preserve" class="oac_no_warn" dir="ltr">
+# ./install.sh -cf ../exadatarack1.xml -u 5-3
+</pre>
+<p>The steps are entered in descending order.</p>
+<p>The steps <code dir="ltr">Validate the configuration files</code> and <code dir="ltr">Apply security fixes</code> cannot be undone.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<a id="BABBABBB" name="BABBABBB"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3"><span class="secnum">3.1.2</span> Oracle Exadata Deployment Assistant Support for Oracle Virtual Machines</h4>
+<p>Starting with patch 20305033, Oracle Exadata Deployment Assistant supports virtualization. Oracle Virtual Machine (Oracle VM) deployments do not use the "bare-metal" deployment method. The target Oracle VMs are created using the deployment tool script, <code dir="ltr">install.sh</code>. The home is created from a gold image rather than installed from the standard release media files. A gold image is a copy of a software-only, installed Oracle home. It is used to copy an image of an Oracle home to a new host on a new file system to serve as an active, usable Oracle home.</p>
+<p>The homes are available as individual patches from My Oracle Support patch sets. Two files are required from My Oracle Support, one file for the Oracle Database home, and one for the Grid Infrastructure home. The following tables list the patch sets for the gold images.</p>
+<p><a href="#BABHJADJ">Table 1</a> lists the patch sets with a gold image for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2).</p>
+<div class="tblruleformal"><a id="sthref14" name="sthref14"></a><a id="BABHJADJ" name="BABHJADJ"></a>
+<p class="titleintable">Table 1 Gold Image Patch Sets for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.2)</p>
+<table class="RuleFormal" title="Gold Image Patch Sets for Oracle Database 12c Release 1 (12.1.0.2)" summary="gold home patch sets for 12.1.0.2" dir="ltr" border="1" width="100%" frame="border" rules="all" cellpadding="3" cellspacing="0">
+<col width="*" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t10">Release</th>
+<th align="left" valign="bottom" id="r1c2-t10">Database Patch</th>
+<th align="left" valign="bottom" id="r1c3-t10">Grid Infrastructure Home Patch</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t10" headers="r1c1-t10">
+<p>12.1.0.2 DBBP 5</p>
+</td>
+<td align="left" headers="r2c1-t10 r1c2-t10">
+<p>20514726</p>
+</td>
+<td align="left" headers="r2c1-t10 r1c3-t10">
+<p>20514738</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t10" headers="r1c1-t10">
+<p>12.1.0.2 DBBP 4</p>
+</td>
+<td align="left" headers="r3c1-t10 r1c2-t10">
+<p>20406097</p>
+</td>
+<td align="left" headers="r3c1-t10 r1c3-t10">
+<p>20406093</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t10" headers="r1c1-t10">
+<p>12.1.0.2 DBBP 3</p>
+</td>
+<td align="left" headers="r4c1-t10 r1c2-t10">
+<p>20374536</p>
+</td>
+<td align="left" headers="r4c1-t10 r1c3-t10">
+<p>20374491</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t10" headers="r1c1-t10">
+<p>12.1.0.2 DBBP 2</p>
+</td>
+<td align="left" headers="r5c1-t10 r1c2-t10">
+<p>20374535</p>
+</td>
+<td align="left" headers="r5c1-t10 r1c3-t10">
+<p>20374490</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t10" headers="r1c1-t10">
+<p>12.1.0.2 DBBP 1</p>
+</td>
+<td align="left" headers="r6c1-t10 r1c2-t10">
+<p>20374534</p>
+</td>
+<td align="left" headers="r6c1-t10 r1c3-t10">
+<p>20374489</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t10" headers="r1c1-t10">
+<p>12.1.0.2</p>
+</td>
+<td align="left" headers="r7c1-t10 r1c2-t10">
+<p>20374533</p>
+</td>
+<td align="left" headers="r7c1-t10 r1c3-t10">
+<p>20374488</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblruleformal" -->
+<p><a href="#BABBGECB">Table 2</a> lists the patch sets with a gold image for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1).</p>
+<div class="tblruleformal"><a id="sthref15" name="sthref15"></a><a id="BABBGECB" name="BABBGECB"></a>
+<p class="titleintable">Table 2 Gold Image Patch Sets for Oracle Database 12<span class="italic">c</span> Release 1 (12.1.0.1)</p>
+<table class="RuleFormal" title="Gold Image Patch Sets for Oracle Database 12c Release 1 (12.1.0.1)" summary="gold home patch sets for 12.1.0.1" dir="ltr" border="1" width="100%" frame="border" rules="all" cellpadding="3" cellspacing="0">
+<col width="*" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t11">Release</th>
+<th align="left" valign="bottom" id="r1c2-t11">Database Patch</th>
+<th align="left" valign="bottom" id="r1c3-t11">Grid Infrastructure Home Patch</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 6</p>
+</td>
+<td align="left" headers="r2c1-t11 r1c2-t11">
+<p>20406098</p>
+</td>
+<td align="left" headers="r2c1-t11 r1c3-t11">
+<p>20406094</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 5</p>
+</td>
+<td align="left" headers="r3c1-t11 r1c2-t11">
+<p>20374532</p>
+</td>
+<td align="left" headers="r3c1-t11 r1c3-t11">
+<p>20374487</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 4</p>
+</td>
+<td align="left" headers="r4c1-t11 r1c2-t11">
+<p>20374531</p>
+</td>
+<td align="left" headers="r4c1-t11 r1c3-t11">
+<p>20374486</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 3</p>
+</td>
+<td align="left" headers="r5c1-t11 r1c2-t11">
+<p>20374530</p>
+</td>
+<td align="left" headers="r5c1-t11 r1c3-t11">
+<p>20374485</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 2</p>
+</td>
+<td align="left" headers="r6c1-t11 r1c2-t11">
+<p>20374529</p>
+</td>
+<td align="left" headers="r6c1-t11 r1c3-t11">
+<p>20374484</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t11" headers="r1c1-t11">
+<p>12.1.0.1 PSU 1</p>
+</td>
+<td align="left" headers="r7c1-t11 r1c2-t11">
+<p>20374528</p>
+</td>
+<td align="left" headers="r7c1-t11 r1c3-t11">
+<p>20374483</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblruleformal" -->
+<p><a href="#BABFJCHJ">Table 3</a> lists the patch sets with a gold image for Oracle Database 11<span class="italic">g</span> release 11.2.0.4.</p>
+<div class="tblruleformal"><a id="sthref16" name="sthref16"></a><a id="BABFJCHJ" name="BABFJCHJ"></a>
+<p class="titleintable">Table 3 Gold Image Patch Sets for Oracle Database 11<span class="italic">g</span> Release 11.2.0.4</p>
+<table class="RuleFormal" title="Gold Image Patch Sets for Oracle Database 11g Release 11.2.0.4" summary="gold home patch sets for 11.2.0.4" dir="ltr" border="1" width="100%" frame="border" rules="all" cellpadding="3" cellspacing="0">
+<col width="*" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t12">Release</th>
+<th align="left" valign="bottom" id="r1c2-t12">Database Patch</th>
+<th align="left" valign="bottom" id="r1c3-t12">Grid Infrastructure Home Patch</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 15</p>
+</td>
+<td align="left" headers="r2c1-t12 r1c2-t12">
+<p>20406099</p>
+</td>
+<td align="left" headers="r2c1-t12 r1c3-t12">
+<p>20406095</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 14</p>
+</td>
+<td align="left" headers="r3c1-t12 r1c2-t12">
+<p>20388394</p>
+</td>
+<td align="left" headers="r3c1-t12 r1c3-t12">
+<p>20388404</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 13</p>
+</td>
+<td align="left" headers="r4c1-t12 r1c2-t12">
+<p>20374527</p>
+</td>
+<td align="left" headers="r4c1-t12 r1c3-t12">
+<p>20374482</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 12</p>
+</td>
+<td align="left" headers="r5c1-t12 r1c2-t12">
+<p>20374526</p>
+</td>
+<td align="left" headers="r5c1-t12 r1c3-t12">
+<p>20374481</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 11</p>
+</td>
+<td align="left" headers="r6c1-t12 r1c2-t12">
+<p>20374525</p>
+</td>
+<td align="left" headers="r6c1-t12 r1c3-t12">
+<p>20374480</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 10</p>
+</td>
+<td align="left" headers="r7c1-t12 r1c2-t12">
+<p>20374524</p>
+</td>
+<td align="left" headers="r7c1-t12 r1c3-t12">
+<p>20374479</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 9</p>
+</td>
+<td align="left" headers="r8c1-t12 r1c2-t12">
+<p>20374523</p>
+</td>
+<td align="left" headers="r8c1-t12 r1c3-t12">
+<p>20374478</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 8</p>
+</td>
+<td align="left" headers="r9c1-t12 r1c2-t12">
+<p>20374522</p>
+</td>
+<td align="left" headers="r9c1-t12 r1c3-t12">
+<p>20374477</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r10c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 7</p>
+</td>
+<td align="left" headers="r10c1-t12 r1c2-t12">
+<p>20374521</p>
+</td>
+<td align="left" headers="r10c1-t12 r1c3-t12">
+<p>20374476</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r11c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 6</p>
+</td>
+<td align="left" headers="r11c1-t12 r1c2-t12">
+<p>20374520</p>
+</td>
+<td align="left" headers="r11c1-t12 r1c3-t12">
+<p>20374475</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r12c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 5</p>
+</td>
+<td align="left" headers="r12c1-t12 r1c2-t12">
+<p>20374519</p>
+</td>
+<td align="left" headers="r12c1-t12 r1c3-t12">
+<p>20374474</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r13c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 4</p>
+</td>
+<td align="left" headers="r13c1-t12 r1c2-t12">
+<p>20374518</p>
+</td>
+<td align="left" headers="r13c1-t12 r1c3-t12">
+<p>20374473</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r14c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 3</p>
+</td>
+<td align="left" headers="r14c1-t12 r1c2-t12">
+<p>20374517</p>
+</td>
+<td align="left" headers="r14c1-t12 r1c3-t12">
+<p>20374472</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r15c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 2</p>
+</td>
+<td align="left" headers="r15c1-t12 r1c2-t12">
+<p>20374516</p>
+</td>
+<td align="left" headers="r15c1-t12 r1c3-t12">
+<p>20374471</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r16c1-t12" headers="r1c1-t12">
+<p>11.2.0.4 BP 1</p>
+</td>
+<td align="left" headers="r16c1-t12 r1c2-t12">
+<p>20374515</p>
+</td>
+<td align="left" headers="r16c1-t12 r1c3-t12">
+<p>20374470</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblruleformal" -->
+<p><a href="#BABCEBAI">Table 4</a> lists the patch sets with a gold image for Oracle Database 11<span class="italic">g</span> release 11.2.0.3.</p>
+<div class="tblruleformal"><a id="sthref17" name="sthref17"></a><a id="BABCEBAI" name="BABCEBAI"></a>
+<p class="titleintable">Table 4 Gold Image Patch Sets for Oracle Database 11<span class="italic">g</span> Release 11.2.0.3</p>
+<table class="RuleFormal" title="Gold Image Patch Sets for Oracle Database 11g Release 11.2.0.3" summary="gold home patch sets for 11.2.0.3" dir="ltr" border="1" width="100%" frame="border" rules="all" cellpadding="3" cellspacing="0">
+<col width="*" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t13">Release</th>
+<th align="left" valign="bottom" id="r1c2-t13">Database Patch</th>
+<th align="left" valign="bottom" id="r1c3-t13">Grid Infrastructure Home Patch</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 26</p>
+</td>
+<td align="left" headers="r2c1-t13 r1c2-t13">
+<p>20406100</p>
+</td>
+<td align="left" headers="r2c1-t13 r1c3-t13">
+<p>20406096</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 25</p>
+</td>
+<td align="left" headers="r3c1-t13 r1c2-t13">
+<p>20374514</p>
+</td>
+<td align="left" headers="r3c1-t13 r1c3-t13">
+<p>20374469</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 24</p>
+</td>
+<td align="left" headers="r4c1-t13 r1c2-t13">
+<p>20374513</p>
+</td>
+<td align="left" headers="r4c1-t13 r1c3-t13">
+<p>20374468</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 23</p>
+</td>
+<td align="left" headers="r5c1-t13 r1c2-t13">
+<p>20374512</p>
+</td>
+<td align="left" headers="r5c1-t13 r1c3-t13">
+<p>20374467</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 22</p>
+</td>
+<td align="left" headers="r6c1-t13 r1c2-t13">
+<p>20374511</p>
+</td>
+<td align="left" headers="r6c1-t13 r1c3-t13">
+<p>20374466</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 21</p>
+</td>
+<td align="left" headers="r7c1-t13 r1c2-t13">
+<p>20374510</p>
+</td>
+<td align="left" headers="r7c1-t13 r1c3-t13">
+<p>20374465</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t13" headers="r1c1-t13">
+<p>11.2.0.3 BP 20</p>
+</td>
+<td align="left" headers="r8c1-t13 r1c2-t13">
+<p>20374509</p>
+</td>
+<td align="left" headers="r8c1-t13 r1c3-t13">
+<p>20374464</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblruleformal" -->
+<p>To use the gold image from the patch sets, do the following:</p>
+<ol>
+<li>
+<p>Download the appropriate patch sets from My Oracle Support.</p>
+</li>
+<li>
+<p>Extract the files.</p>
+</li>
+<li>
+<p>Copy the compressed <code dir="ltr">klone</code> files to the <code dir="ltr">./WorkDir</code> directory on the machine that will run the <code dir="ltr">install.sh</code> script.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="A132172625" name="A132172625"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4</span> Documentation Accessibility</h2>
+<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <code dir="ltr"><a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc</a></code>.</p>
+<a id="sthref18" name="sthref18"></a>
+<p class="subhead2">Access to Oracle Support</p>
+<p>Oracle customers that have purchased support have access to electronic support through My Oracle Support. For information, visit <code dir="ltr"><a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info</a></code> or visit <code dir="ltr"><a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs</a></code> if you are hearing impaired.</p>
+</div>
+<!-- class="sect1" -->
+<a id="sthref19" name="sthref19"></a>
+<hr />
+<p>Oracle Exadata Database Machine and Oracle SuperCluster README for Oracle OneCommand Utility, 11<span class="italic">g</span> Release 2 (11.2) and 12<span class="italic">c</span> Release 1 (12.1)</p>
+<p>Copyright &copy; 2008, 2015,&nbsp;Oracle and/or its affiliates. All rights reserved.</p>
+<p>This software and related documentation are provided under a license agreement containing restrictions on use and disclosure and are protected by intellectual property laws. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish, or display any part, in any form, or by any means. Reverse engineering, disassembly, or decompilation of this software, unless required by law for interoperability, is prohibited.</p>
+<p>The information contained herein is subject to change without notice and is not warranted to be error-free. If you find any errors, please report them to us in writing.</p>
+<p>If this is software or related documentation that is delivered to the U.S. Government or anyone licensing it on behalf of the U.S. Government, then the following notice is applicable:</p>
+<p>U.S. GOVERNMENT END USERS: Oracle programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, delivered to U.S. Government end users are "commercial computer software" pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As such, use, duplication, disclosure, modification, and adaptation of the programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, shall be subject to license terms and license restrictions applicable to the programs. No other rights are granted to the U.S. Government.</p>
+<p>This software or hardware is developed for general use in a variety of information management applications. It is not developed or intended for use in any inherently dangerous applications, including applications that may create a risk of personal injury. If you use this software or hardware in dangerous applications, then you shall be responsible to take all appropriate fail-safe, backup, redundancy, and other measures to ensure its safe use. Oracle Corporation and its affiliates disclaim any liability for any damages caused by use of this software or hardware in dangerous applications.</p>
+<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+<p>Intel and Intel Xeon are trademarks or registered trademarks of Intel Corporation. All SPARC trademarks are used under license and are trademarks or registered trademarks of SPARC International, Inc. AMD, Opteron, the AMD logo, and the AMD Opteron logo are trademarks or registered trademarks of Advanced Micro Devices. UNIX is a registered trademark of The Open Group.</p>
+<p>This software or hardware and documentation may provide access to or information about content, products, and services from third parties. Oracle Corporation and its affiliates are not responsible for and expressly disclaim all warranties of any kind with respect to third-party content, products, and services unless otherwise set forth in an applicable agreement between you and Oracle. Oracle Corporation and its affiliates will not be responsible for any loss, costs, or damages incurred due to your access to or use of third-party content, products, or services, except as set forth in an applicable agreement between you and Oracle.</p>
+</div>
+<!-- class="letterstyle" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>
